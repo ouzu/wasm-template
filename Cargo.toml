@@ -1,0 +1,34 @@
+[package]
+name = "wasm-template"
+version = "0.1.0"
+authors = ["ouzu"]
+edition = "2021"
+rust-version = "1.79.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+multi-threading = []
+
+[profile.release]
+lto = "fat"
+panic = "abort"
+
+[dependencies]
+js-sys = "0.3.69"
+markdown = "0.3.0"
+rayon = "1.8"
+wasm-bindgen = "0.2.92"
+wasm-bindgen-rayon = "1.0"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+    'CanvasRenderingContext2d',
+    'Document',
+    'Element',
+    'HtmlCanvasElement',
+    'ImageData',
+    'Window',
+]
